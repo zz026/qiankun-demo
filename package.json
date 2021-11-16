@@ -14,11 +14,10 @@
     "install:sub-vue1": "cd sub-vue1 && npm install",
     "install:sub-vue2": "cd sub-vue2 && npm install",
     "install:sub-react": "cd sub-react && npm install",
-    "install:sub-react2": "cd sub-react2 && npm install",
     "start:main": "cd main && npm start",
     "start:sub-vue1": "cd sub-vue1 && npm start",
     "start:sub-vue2": "cd sub-vue2 && npm start",
-    "start:sub-react2": "cd sub-react2 && npm start",
+    "start:sub-react": "cd sub-react && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -7,7 +7,7 @@
 /sub-react react子项目
 
 
-### Project Install
+## Project Install
 ```
 安装所有项目依赖
 npm run install
