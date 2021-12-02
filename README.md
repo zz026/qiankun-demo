@@ -1,11 +1,12 @@
 # qiankun-demo
 
 ## Project List
+```
 /main 主项目 qiankun主体
 /sub-vue1 vue子项目1
 /sub-vue2 vue子项目2
 /sub-react react子项目
-
+```
 
 ## Project Install
 ```
