@@ -246,7 +246,7 @@ export default {
       })
     },
     cellClick(e) {
-      this.$emit('sort-chang', e)
+      this.$emit('cell-click', e)
     },
     // 排序
     tableSortChange({ order, property: sort }) {
