@@ -5,7 +5,7 @@
   @description  https://xuliangzhan_admin.gitee.io/vxe-table/v3/#/table/api
 -->
 <template>
-  <div class="EcTable" id="EcTable">
+  <div class="EcTable">
     <!-- Loading -->
     <div v-show="local_options.loading" class="loadingWrap">
       <a-spin tip="Loading....." />
@@ -156,16 +156,7 @@ export default {
     local_columns() {
       const _columns = []
       const { showIndex, showRadio, showCheckbox } = this.local_options
-      if (showIndex) {
-        _columns.push({
-          type: 'seq',
-          title: '序号',
-          resizable: false,
-          align: 'left',
-          width: 60,
-          fixed: 'left'
-        })
-      }
+
       if (showCheckbox) {
         _columns.push({
           showHeaderOverflow: false,
@@ -185,17 +176,19 @@ export default {
           fixed: 'left'
         })
       }
+
+      // 序号
+      if (showIndex) {
+        _columns.push({
+          type: 'seq',
+          title: '序号',
+          resizable: false,
+          align: 'left',
+          width: 60,
+          fixed: 'left'
+        })
+      }
   
-      // if (showIndex) {
-      //   _columns.push({
-      //     type: 'seq',
-      //     title: '序号',
-      //     resizable: false,
-      //     align: 'left',
-      //     width: 60,
-      //     fixed: 'left'
-      //   })
-      // }
       return _columns.concat(this.columns)
     },
     local_table_options() {
@@ -252,7 +245,9 @@ export default {
         pageSize: pageSize
       })
     },
-    cellClick() {},
+    cellClick(e) {
+      this.$emit('sort-chang', e)
+    },
     // 排序
     tableSortChange({ order, property: sort }) {
       const params = { sort, sort_type: order ? order.toUpperCase() : null }
@@ -278,8 +273,9 @@ export default {
 
 <style lang="less" scoped>
 .EcTable {
-  max-height: 100%;
+  flex: 1;
   height: 100%;
+  min-height: 200px;
   padding: 0 12px;
   display: flex;
   flex-direction: column;

@@ -79,6 +79,7 @@ Vue.prototype.$confirm = function (params) {
   return Modal.confirm({
     icon: h => <a-icon type="exclamation-circle" theme="filled" />,
     centered: true,
+    onCancel: () => {},
     ...params
   })
 }

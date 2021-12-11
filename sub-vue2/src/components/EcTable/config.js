@@ -13,9 +13,9 @@ export const default_tableProps = {
     trigger: 'cell',
     remote: true // 所有列是否使用服务端排序，如果设置为 true 则不会对数据进行处理
   },
-  // scrollY: {
-  //   gt: 10000
-  // }
+  scrollY: {
+    gt: 10000
+  }
 }
 
 export const default_options = {

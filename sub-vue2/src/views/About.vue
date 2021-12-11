@@ -1,5 +1,5 @@
 <template>
-  <div class="aboutPage">
+  <div class="flexColumnPageWrap">
     <a-alert message="骚年，你今天割肉了吗" type="info" show-icon />
 
     <EcTable
@@ -73,11 +73,5 @@ export default {
 }
 .color-warn {
   color: @warn-color;
-}
-
-.aboutPage {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 </style>
