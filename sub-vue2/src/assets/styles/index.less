@@ -18,3 +18,21 @@
 ::-webkit-scrollbar-thumb{border-radius:8px;background-color:rgba(0,0,0,0.1);box-shadow:0 0 0 #fff inset,0 0 0 #fff inset,0 0 0 rgba(255,255,255,0.9) inset,0 0 0 rgba(255,255,255,0.9) inset}
 ::-webkit-scrollbar-thumb:hover{background-color:rgba(0,0,0,0.4)}
 ::-webkit-scrollbar-thumb:active{background:rgba(0,0,0,0.6)}
+
+.icon-button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin-left: 12px;
+  &:hover {
+    >.iconfont {
+      color: @base-color;
+    }
+  }
+  >.iconfont {
+    color: rgba(0,0,0,0.45)
+  }
+  & + & {
+    margin-left: 12px;
+  }
+}

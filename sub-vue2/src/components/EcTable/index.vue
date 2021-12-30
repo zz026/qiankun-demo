@@ -23,7 +23,15 @@
         <slot name="toolbarRight"></slot>
         <a-tooltip>
           <template slot="title">刷新</template>
-          <a-button @click="$emit('refresh')"><i class="iconfont icon-refresh"/></a-button>
+          <a-button @click="$emit('refresh')" class="icon-button">
+            <i class="iconfont icon-refresh"/>
+          </a-button>
+        </a-tooltip>
+        <a-tooltip>
+          <template slot="title">帮助</template>
+          <a-button @click="$emit('refresh')" class="icon-button">
+            <i class="iconfont icon-question"/>
+          </a-button>
         </a-tooltip>
       </template>
     </vxe-toolbar>
@@ -34,7 +42,6 @@
         ref="vxeTable"
         key="vxeTable"
         v-bind="local_table_options"
-        style="flex:1;"
         :data="tableData"
         :seq-config="seqConfig"
         @cell-click="cellClick"
@@ -71,7 +78,7 @@
 </template>
 
 <script>
-import { objDeepMerge } from '@/utils'
+import { mergtOptions } from '@/utils'
 import XEUtils from 'xe-utils';
 import { default_tableProps , default_options } from './config'
 
@@ -93,7 +100,7 @@ const header_tips_slot =  (headerConfig, { column, $rowIndex }, h) => {
 
   return [
     headerConfig.content ?
-      <a-tooltip title={headerConfig.content} overlayClassName='tooltip-white'>
+      <a-tooltip title={headerConfig.content} overlayClassName='tooltip-white' placement='topLeft'>
         {title} <i class={['iconfont', headerConfig.icon || 'icon-question']}></i>
       </a-tooltip> :
       <span>{title}</span>
@@ -192,10 +199,10 @@ export default {
       return _columns.concat(this.columns)
     },
     local_table_options() {
-      return objDeepMerge(default_tableProps, this.tableProps)
+      return mergtOptions(default_tableProps, this.tableProps)
     },
     local_options() {
-      return objDeepMerge(default_options, this.options)
+      return mergtOptions(default_options, this.options)
     }
   },
   mounted() {
@@ -280,12 +287,12 @@ export default {
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
 
   .vxeTableParentEl {
     flex: 1;
     overflow-y: hidden;
-    background: red;
+    min-height: 200px;
+    background: #fff;
   }
 
   .loadingWrap {

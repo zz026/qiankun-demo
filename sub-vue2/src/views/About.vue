@@ -12,7 +12,7 @@
         <div style="margin-bottom:12px;">
           <a-input v-model="inputVal" placeholder="请输入" style="width:300px;margin-right:10px;" />
           <a-button type="primary" @click="handleClick">Search</a-button>
-          <a-button>
+          <a-button class="icon-button">
             <icon-font type="icon-delete" />
           </a-button>
         </div>
